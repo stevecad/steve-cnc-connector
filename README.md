@@ -7,7 +7,11 @@
 > machine (a Syil X7 with a SINUMERIK 808D) by its author. It can be wrong, and a wrong program, offset or signal on
 > a machine tool can destroy the machine, the part, the tooling, or hurt someone.**
 >
-> - **Use it at your own risk.** There is no warranty of any kind (see [LICENSE](LICENSE)).
+> - **You are responsible** for making sure it works correctly with your machine, its PLC program and your setup,
+>   and for everything it does. Use it at your own risk. There is no warranty of any kind (see [LICENSE](LICENSE)).
+> - **By default nothing asks for approval**: anyone you allow in STEVE, AI agents included, can send programs,
+>   press the control's keys and switch the outputs you list. Allow only what you want, and add approvals (STEVE's
+>   permissions, or `confirm` in `config.json`) for anything you want to see first.
 > - **Your machine's own safety systems stay in charge**: emergency stop, door interlocks, guarding and the machine
 >   builder's PLC program. This software does not replace or bypass any of them, and must never be used to.
 > - **A person qualified to run the machine must be at it** whenever it is powered, and must prove out every program

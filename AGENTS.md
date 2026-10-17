@@ -1,7 +1,11 @@
 # AGENTS.md
 
 Guidance for AI agents (and people) working on **steve-cnc-connector**: a STEVE connector that lets STEVE see and
-work the machines in a shop. It is **experimental** (see the README's warning): it runs next to real machine tools.
+work the machines in a shop.
+
+**This is experimental software** (see the warning at the top of the README): it runs next to real machine tools.
+Whoever runs it is responsible for making sure it works correctly with their machine. Keep that warning in the
+README, and never weaken it.
 
 ## What it is
 
