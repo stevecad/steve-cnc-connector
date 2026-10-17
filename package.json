@@ -41,7 +41,9 @@
     "panel/",
     "service/",
     "config.example.json",
+    "docs/",
     "README.md",
+    "AGENTS.md",
     "LICENSE"
   ],
   "devDependencies": {

@@ -29,7 +29,8 @@ actions and events are named `<machine>.<name>` (`x7.send_program`, `x7.status`)
 Nothing in this connector can start a program, move an axis or turn the spindle. On the 808D those keys are on the
 machine control panel, a USB device that only the person at the machine can reach. The connector has no delete
 action, and it writes to the PLC only the bits listed under `plc.outputs` (none by default). See
-[docs/sinumerik-808d.md](docs/sinumerik-808d.md) for what was found on the machine.
+[docs/sinumerik-808d.md](docs/sinumerik-808d.md) for what was found on the machine, and [AGENTS.md](AGENTS.md)
+for how it was made to work, how to deploy it, and the rules for agents operating a machine through it.
 
 ## Actions (808D)
 
