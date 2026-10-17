@@ -1,0 +1,8 @@
+node_modules/
+# Per-install state and secrets: the connector's private key, logs.
+config*.json
+!config.example.json
+data*/
+*.log
+# Notes about one shop's own setup (addresses, accounts): kept out of the public repo.
+HANDOFF.md

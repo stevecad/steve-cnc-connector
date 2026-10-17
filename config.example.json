@@ -1,0 +1,37 @@
+{
+  "name": "Shop machines",
+  "confirm": [],
+  "panel": { "name": "shop", "title": "Shop", "placement": ["right"] },
+  "machines": [
+    {
+      "key": "x7",
+      "name": "Syil X7",
+      "driver": "sinumerik808d",
+      "steve_machine": null,
+      "programs": {
+        "folder": "/opt/cnc",
+        "subfolder": "STEVE",
+        "drive": "N1",
+        "extension": ".mpf",
+        "uppercase": false,
+        "max_name_length": 24,
+        "ascii_only": true
+      },
+      "plc": {
+        "host": "172.16.100.2",
+        "rack": 0,
+        "slot": 2,
+        "poll_ms": 1000,
+        "signals": {},
+        "outputs": { "lamp": "M211.7", "coolant": "M150.0" }
+      },
+      "screen": {
+        "host": "172.16.100.2",
+        "port": 5900,
+        "password_file": "~/.config/steve-cnc/syil-808d-remote-password",
+        "keys": true,
+        "idle_minutes": 15
+      }
+    }
+  ]
+}

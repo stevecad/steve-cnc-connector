@@ -1,0 +1,50 @@
+{
+  "name": "steve-cnc-connector",
+  "version": "0.1.0",
+  "description": "STEVE connector for the machines in a shop: one driver per machine (SINUMERIK 808D, or any control that reads programs from a folder).",
+  "main": "connector.js",
+  "type": "commonjs",
+  "private": true,
+  "scripts": {
+    "start": "node connector.js",
+    "test": "node --test --test-reporter=spec \"test/*.test.js\"",
+    "check": "node --check connector.js && node --check lib/catalog.js && node --check lib/log.js && node --check lib/programs.js && node --check lib/drivers/folder.js && node --check lib/drivers/sinumerik808d.js && node --check lib/s7.js && node --check lib/screen.js && node --check lib/keys.js && node --check lib/png.js && node --check lib/steve.js && node --check lib/panel.js && node --check panel/panel.js"
+  },
+  "dependencies": {
+    "rfb2": "^1.1.0"
+  },
+  "license": "MIT",
+  "author": "Robit Overlord",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevecad/steve-cnc-connector.git"
+  },
+  "homepage": "https://github.com/stevecad/steve-cnc-connector",
+  "bugs": {
+    "url": "https://github.com/stevecad/steve-cnc-connector/issues"
+  },
+  "keywords": [
+    "steve",
+    "cnc",
+    "sinumerik",
+    "808d",
+    "s7",
+    "vnc",
+    "connector"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "files": [
+    "connector.js",
+    "lib/",
+    "panel/",
+    "service/",
+    "config.example.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

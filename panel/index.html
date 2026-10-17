@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <main id="machines"><p class="muted">Loading…</p></main>
+  <p id="error" class="message error" hidden></p>
+  <template id="machine">
+    <section class="machine">
+      <header><h2 class="name"></h2><span class="spacer"></span><span class="state pill"></span></header>
+      <p class="banner" hidden></p>
+      <dl class="status"></dl>
+      <div class="outputs" hidden></div>
+      <div class="screen-card" hidden>
+        <div class="row"><h3>Screen</h3><span class="spacer"></span>
+          <label class="auto"><input type="checkbox" class="auto-on"> Auto</label>
+          <button class="refresh-screen">Refresh</button></div>
+        <img class="screen" alt="The control's screen" hidden>
+        <p class="screen-note muted">Refresh to see the control's screen. A new remote session may show "Remote
+          control request" on the control for about 10 s; it accepts itself.</p>
+        <div class="keys" hidden>
+          <div class="keyrow" data-keys="H1 H2 H3 H4 H5 H6 H7 H8"></div>
+          <div class="keyrow" data-keys="V1 V2 V3 V4 V5 V6 V7 V8"></div>
+          <div class="keyrow" data-keys="MACHINE OFFSET PROGRAM PROGRAM_MANAGER SYSTEM"></div>
+          <div class="keyrow" data-keys="UP DOWN LEFT RIGHT PAGE_UP PAGE_DOWN TAB INPUT"></div>
+          <form class="key-form"><input class="key-text" maxlength="1000" autocomplete="off"
+            placeholder='Keys, e.g. H3 DOWN INPUT or "G54"' aria-label="Keys to press"><button type="submit">Press</button></form>
+          <p class="hint muted">Keys work the control's screen only: starting a program, jogging and the spindle stay at
+            the machine.</p>
+        </div>
+      </div>
+      <div class="send-card" hidden>
+        <div class="row"><h3>This program</h3></div>
+        <p class="doc muted"></p>
+        <label class="field">Setup <input class="setup" maxlength="100" autocomplete="off"
+          placeholder="only for a program with several"></label>
+        <button class="send primary">Send to the machine</button>
+        <p class="hint ask-hint muted" hidden>STEVE asks you to confirm before a panel sends a document, unless you allow
+          "Its panel may send the document open in STEVE without asking" for this action in Settings → Connectors.</p>
+      </div>
+      <div class="programs-card" hidden>
+        <div class="row"><h3>Programs</h3><span class="spacer"></span><button class="refresh-programs">Refresh</button></div>
+        <ul class="programs"></ul>
+      </div>
+      <p class="message muted"></p>
+    </section>
+  </template>
+  <script src="panel.js"></script>
+</body>
+</html>
