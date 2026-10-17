@@ -9,9 +9,10 @@
 >
 > - **You are responsible** for making sure it works correctly with your machine, its PLC program and your setup,
 >   and for everything it does. Use it at your own risk. There is no warranty of any kind (see [LICENSE](LICENSE)).
-> - **By default nothing asks for approval**: anyone you allow in STEVE, AI agents included, can send programs,
->   press the control's keys and switch the outputs you list. Allow only what you want, and add approvals (STEVE's
->   permissions, or `confirm` in `config.json`) for anything you want to see first.
+> - **Everything that acts on the machine waits for a person to confirm by default**: pressing the control's keys
+>   and switching outputs. Nothing in this connector starts a program or moves an axis; sending a program only puts
+>   the file on the control's drive. You can change this (`confirm` in `config.json`, or per action in STEVE); if
+>   you remove the confirmations, anyone you allow in STEVE, AI agents included, can act on your machine without you.
 > - **Your machine's own safety systems stay in charge**: emergency stop, door interlocks, guarding and the machine
 >   builder's PLC program. This software does not replace or bypass any of them, and must never be used to.
 > - **A person qualified to run the machine must be at it** whenever it is powered, and must prove out every program
@@ -73,8 +74,10 @@ See `config.example.json`. Per machine: `key` (a short name, the action prefix),
 (the folder, the subfolder the connector writes to, the control's name for the drive, file name rules), and for the
 808D `plc` (address, rack/slot, poll interval, extra `signals` by name such as `"door_closed": "I1.3"`, or
 `"door_locked": null` to leave one out), `outputs` (bits STEVE may switch, by name; only things safe to switch
-remotely, like a lamp) and `screen` (VNC address, password file, `keys`). `confirm` lists
-actions that wait for a person on every run (none by default).
+remotely, like a lamp) and `screen` (VNC address, password file, `keys`). `confirm` lists the actions that wait for
+a person on every run, by full name (`["x7.press_keys", "x7.set_output"]`). Left out, each driver's defaults apply:
+everything that acts on the machine (`press_keys`, `set_output`). A list replaces the defaults; `[]` lets every run go
+at once, at your own risk.
 
 ## Tests
 

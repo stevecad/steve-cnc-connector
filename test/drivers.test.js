@@ -175,8 +175,14 @@ test('808D: actions, and the screen ones only with a screen', async (t) => {
   for (const a of withScreen.actions()) assert.ok(!/delete/i.test(a.name), 'no delete action, ever');
   const send = withScreen.actions().find((a) => a.name === 'send_program');
   assert.match(send.description, /PROGRAM MANAGER, drive N1, folder STEVE/);
-  const c = buildCatalog([withScreen]);
-  assert.ok(c.actions.every((a) => a.confirm === false), 'no approvals by default');
+});
+
+test('808D: by default a person confirms every run that acts on the machine; a config list replaces that', async (t) => {
+  const { m } = await machine808d(t, { screen: true, outputs: { lamp: 'M211.7' } });
+  const gated = (c) => c.actions.filter((a) => a.confirm).map((a) => a.name);
+  assert.deepEqual(gated(buildCatalog([m])), ['x7.set_output', 'x7.press_keys']);
+  assert.deepEqual(gated(buildCatalog([m], { confirm: ['x7.send_program'] })), ['x7.send_program']);
+  assert.deepEqual(gated(buildCatalog([m], { confirm: [] })), [], 'an owner can choose no confirmations');
 });
 
 test('808D: sends a program; replacing one is refused while a program is under way', async (t) => {

@@ -1,6 +1,5 @@
 {
   "name": "Shop machines",
-  "confirm": [],
   "panel": { "name": "shop", "title": "Shop", "placement": ["right"] },
   "machines": [
     {

@@ -30,6 +30,9 @@ These are in the action descriptions too, because agents read those. Keep them t
 - **Tell the person what will happen at the machine before anything that changes it** (a key press, a switched
   output, a program sent), and check the result after (`status`, `screen`, the run's read-back).
 - **Never delete anything on the control** or the programs it runs. There is no delete action; don't add one.
+- **A person confirms every run that acts on the machine, by default**: drivers mark those actions `confirm: true`
+  (`press_keys`, `set_output`), and a new action that moves or switches anything gets it too. Owners may loosen it
+  (`confirm` in their config, or per action in STEVE), but it never ships loosened.
 - **Starting a program, jogging, the spindle and mode stay with the person at the machine.** On the 808D those
   are keys on the machine control panel, a USB device. This connector does not imitate those keys or write the
   NC's mode, start or stop signals, and must not: that would go around the machine's own safety design. Remote

@@ -43,7 +43,7 @@ function loadMachines() {
 
 const steve = new Steve({ baseUrl: config.steve_url || 'https://stevecad.studio/connect/v1', dataDir: DATA, log });
 const machines = loadMachines();
-const catalog = buildCatalog(machines, { confirm: Array.isArray(config.confirm) ? config.confirm : [] });
+const catalog = buildCatalog(machines, { confirm: Array.isArray(config.confirm) ? config.confirm : null });
 const actionNames = catalog.actions.map((a) => a.name);
 const handlerFor = (actionName) => {
   const dot = actionName.indexOf('.');
